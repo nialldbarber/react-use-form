@@ -1,21 +1,22 @@
-import * as React from 'react'
+import { useState } from 'react'
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState({
-    counter: 0
-  })
+export const useForm = (initialValues, callback) => {
+  const [ values, setValues ] = useState(initialValues)
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval)
-    }
-  }, [])
+  const handleChange = (e) => {
+    const { value, name } = e.target
+    setValues({ ...values, [name]: value })
+  }
 
-  return counter
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    callback()
+    setValues(initialValues)
+  }
+
+  return {
+    values,
+    handleChange,
+    handleSubmit,
+  }
 }
