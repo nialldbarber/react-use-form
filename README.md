@@ -15,12 +15,21 @@ npm install --save @nialldbarber/react-use-form
 ```jsx
 import React, { Component } from 'react'
 
-import { useMyHook } from '@nialldbarber/react-use-form'
+import { userForm } from '@nialldbarber/react-use-form'
 
 const Example = () => {
-  const example = useMyHook()
+  const { values, handleChange, handleSubmit } = userForm({
+    foo: 'foo',
+    bar: 'bar',
+    baz: 'baz',
+  })
+
   return (
-    <div>{example}</div>
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={values.foo} name="foo" onChange={handleChange} />
+      <input type="text" value={values.bar} name="bar" onChange={handleChange} />
+      <input type="text" value={values.baz} name="baz" onChange={handleChange} />
+    </form>
   )
 }
 ```
@@ -29,6 +38,4 @@ const Example = () => {
 
 MIT © [nialldbarber](https://github.com/nialldbarber)
 
----
 
-This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).
