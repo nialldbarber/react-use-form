@@ -15,10 +15,10 @@ npm install --save @nialldbarber/react-use-form
 ```jsx
 import React, { Component } from 'react'
 
-import { userForm } from '@nialldbarber/react-use-form'
+import { useForm } from '@nialldbarber/react-use-form'
 
 const Example = () => {
-  const { values, handleChange, handleSubmit } = userForm({
+  const { values, handleChange, handleSubmit } = useForm({
     foo: 'foo',
     bar: 'bar',
     baz: 'baz',
