@@ -66,5 +66,12 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-url": "^2.1.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "form",
+    "react form",
+    "useState",
+    "useForm"
+  ]
 }
